@@ -21,7 +21,7 @@ namespace McvMovie.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("MovieDBContext", throwIfV1Schema: false)
         {
         }
 
@@ -29,5 +29,7 @@ namespace McvMovie.Models
         {
             return new ApplicationDbContext();
         }
+
+        public DbSet<Movie> Movies { get; set; }
     }
 }
